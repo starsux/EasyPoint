@@ -1,4 +1,5 @@
-import MenuBar from "@/app/MenuBar";
+"use client"
+import MenuBar from "@/app/MenuBar"
 
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import BarChartIcon from '@mui/icons-material/BarChart';
@@ -8,6 +9,9 @@ import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import ReceiptIcon from '@mui/icons-material/Receipt';
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 import StorageIcon from '@mui/icons-material/Storage';
+import styles from "@/app/styles/mainPage.module.css";
+
+import { useState } from "react";
 
 import {NavigationItemType} from "@/app/MenuBar";
 
@@ -56,8 +60,9 @@ const NAVIGATION: NavigationItemType[] = [
     title: 'Analytics',
   },
   {
-    segment: 'reports',
     title: 'Reportes',
+    segment: undefined,
+    kind: 'parent',
     icon: <BarChartIcon />,
     children: [
       {
@@ -70,7 +75,14 @@ const NAVIGATION: NavigationItemType[] = [
 ];
 
 export default function Home() {
+
+
+
   return (
-    <MenuBar navigation={NAVIGATION}/>
+
+    <>
+      <MenuBar navigation={NAVIGATION} />
+    </>
+
   );
 }

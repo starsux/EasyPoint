@@ -1,6 +1,9 @@
+import styles from "@/app/styles/dashboard.module.css";
 
 export default function Home() {
   return (
-    <p>test</p>
+    <div className={styles.main}>
+        <p>dahsboadr</p>
+    </div>
   );
 }

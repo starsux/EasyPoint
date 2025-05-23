@@ -1,6 +1,6 @@
 
 export default function Home() {
   return (
-    <p>expenses</p>
+    <p>sales history</p>
   );
 }

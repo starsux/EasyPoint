@@ -1,5 +1,167 @@
+.menuBarContainer{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.divider{
+    margin: 5px 0 5px 0;
+}
 .barMenu{
     background: #fff;
-    height: 100vh;
-    width: 250px;
+    min-height: 100%;
+    width: 300px;
+}
+
+.headerMenuContainer{
+    background: #fff;
+    display: flex;
+    align-items: center;
+    min-height: 50px;
+    width: 100%;
+}
+.header{
+
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 50px;
+    gap: 10px;
+    margin-left: 10px;
+}
+.logoLink{
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    min-width: 10%;
+}
+
+.hamburgerButtonContainer{
+    width: 80px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hamburgerButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+}
+
+.hamburgerButton:hover{
+    background: #d6d6d6;
+    cursor: pointer;
+}
+.navLink{
+    display: flex;
+    width: 100%;
+    min-height: 50px;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    padding-left: 10px;
+}
+
+
+.navLinkHeader{
+    min-height: 50px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    padding-left: 10px;
+}
+
+
+.children{
+     width: 100%;
+    min-height: 50px;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    
+}
+
+.children.hide{
+    display: none;
+}
+
+.childrenNavLink{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+
+.navLink,.childrenNavLink,.navLinkHeader{
+    transition:  background 200ms ease-in-out;
+}
+
+.navLink:hover,.childrenNavLink:hover,.navLinkHeader:hover{
+    background:#e2e2e2;
+    cursor: pointer;
+}
+
+.mainContent{
+    width: 100%;
+    height: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.frameContainer{
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    overflow-y: hidden;
+}
+
+.frameContainer iframe{
+    width: 100%;
+    min-height: 100% !important;
+    outline: none;
+    border: none;
+
+}
+
+.barMenu.short{
+    width: 80px;
+
+}
+
+.short .navLink, .childrenNavLink.short,.short.navLinkHeader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    gap: 0;
+}
+
+.short .navLink p,.childrenNavLink.short > *,.short.navLinkHeader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    text-align: center;
+}
+
+.short .navLink > *, .childrenNavLink.short,.short.navLinkHeader  {
+    margin: 6px 0 5px 0;
 }
