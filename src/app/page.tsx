@@ -20,37 +20,37 @@ const NAVIGATION: NavigationItemType[] = [
     kind: 'header',
     title: 'Easy Point',
     segment: '/',
-    icon: <DashboardIcon />
+    icon: <DashboardIcon  />
   },
   {
     segment: 'dashboard',
     title: 'Dashboard',
-    icon: <DashboardIcon />,
+    icon: <DashboardIcon sx={{ fontSize: 20 }}/>,
   },
   {
     segment: 'orders',
     title: 'Ordenes',
-    icon: <ReceiptIcon />,
+    icon: <ReceiptIcon sx={{ fontSize: 20 }}/>,
   },
     {
     segment: 'expenses',
     title: 'Gastos',
-    icon: <AttachMoneyIcon />,
+    icon: <AttachMoneyIcon sx={{ fontSize: 20 }}/>,
   },
       {
     segment: 'customers',
     title: 'Clientes',
-    icon: <AssignmentIndIcon />,
+    icon: <AssignmentIndIcon sx={{ fontSize: 20 }}/>,
   },
   {
     segment: 'pending',
     title: 'Cuentas pendientes',
-    icon: <RequestQuoteIcon />,
+    icon: <RequestQuoteIcon sx={{ fontSize: 20 }}/>,
   },
     {
     segment: 'products',
     title: 'Productos',
-    icon: <StorageIcon />,
+    icon: <StorageIcon sx={{ fontSize: 20 }}/>,
   },
   {
     kind: 'divider',
@@ -63,12 +63,12 @@ const NAVIGATION: NavigationItemType[] = [
     title: 'Reportes',
     segment: undefined,
     kind: 'parent',
-    icon: <BarChartIcon />,
+    icon: <BarChartIcon sx={{ fontSize: 20 }}/>,
     children: [
       {
         segment: 'sales',
         title: 'Historial de ventas',
-        icon: <DescriptionIcon />,
+        icon: <DescriptionIcon sx={{ fontSize: 20 }}/>,
       },
     ],
   },
