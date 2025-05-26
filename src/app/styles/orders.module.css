@@ -1,0 +1,189 @@
+body{
+    margin: 0; 
+    padding: 20px; 
+    width: 100%;
+    height: 100%;
+    overflow:hidden;
+
+}
+.main{
+    height: 100%;
+    width: 100%;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.tilteContainer,.section{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.tilteContainer{
+    box-shadow: 0px 1px 0px 0px #0000001c;
+
+}
+
+.tilteContainer h2,.section h3{
+    margin: 25px;
+    font-size: 1.2rem;
+}
+
+/* New order section */
+.newOrderFeatureContainer{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0; 
+     min-height: 0;
+     border-bottom: 1px solid #ccc;
+}
+
+.newOrderForm{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    min-height: 0;
+}
+
+.orderPrimaryInfoSection{
+    width: 20%;
+    height: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+}
+
+.productSelectionSection{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+.productSearchBar {
+    height: 40px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}
+.productSearchBar input {
+    flex-grow: 1;
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin-left: 5px;
+}
+
+.productListContainer{
+    width: 100%;
+    display: flex;
+    flex-grow: 1;
+    min-height: 0;
+    overflow-y: auto;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+}
+
+.productSearchContainer { 
+    border: 1px solid #eee;
+    padding: 10px;
+}
+
+.formActionsContainer{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+    padding-right: 20px;
+
+}
+
+.actionButton {
+    padding: 8px 15px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+/* Table */
+.ActiveOrdersContainer{
+    width: 100%;
+    flex-grow: 1;   
+    flex-basis: 0;   
+    min-height: 0;   
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.tableHeadersContainer{
+    width: 100%;
+    height: 40px;
+    flex-shrink: 0;
+    padding: 0 10px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #dee2e6;
+    
+}
+
+.tableHeader {
+    flex: 1;             
+    text-align: center;   
+    padding: 0 5px;     
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.rowsContainer{
+    width: 100%;
+    height: 90%;
+    flex-grow: 1;
+    flex-basis: 0;
+
+    overflow-y: auto;
+    min-height: 0;
+    
+}
+
+.row{
+    width: 100%;
+    flex-shrink: 0;
+    min-height: 30px;
+    display: flex;
+    align-items: center;
+ border-bottom: 1px solid #f1f1f1;
+padding: 0 10px; 
+}
+.row:last-child {
+    border-bottom: none; 
+}
+
+.row p {
+    flex: 1;            
+    padding: 10px 8px;    
+    text-align: center;   
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;  
+}

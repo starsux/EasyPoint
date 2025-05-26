@@ -13,7 +13,7 @@
     background: #fff;
     min-height: 100%;
     width: 300px;
-    box-shadow: 1px 0px 0px 1px #00000017;
+    box-shadow: 0.1px 0px 0px 1px #00000017;
     z-index: 50;
 
 }
