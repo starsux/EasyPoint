@@ -9,9 +9,7 @@ import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import ReceiptIcon from '@mui/icons-material/Receipt';
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 import StorageIcon from '@mui/icons-material/Storage';
-import styles from "@/app/styles/mainPage.module.css";
 
-import { useState } from "react";
 
 import {NavigationItemType} from "@/app/MenuBar";
 

@@ -1,11 +1,12 @@
 "use client";
-import React, { JSX } from 'react';
+import React from 'react';
 import styles from "@/app/styles/barmenu.module.css";
 import MenuIcon from '@mui/icons-material/Menu';
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import {clsx} from "clsx";
 
-import { useState } from 'react';
+import { useState, JSX, useEffect } from 'react';
+
 
 interface NavLinkItem {
   kind?: undefined;
@@ -53,7 +54,12 @@ interface MenuBarProps {
   navigation: NavigationItem[];
 }
 
+// PERSISTENT SETTINGS
+const MENU_TOGGLE_STORAGE_KEY = 'menuBarToggleState'; 
+const DEFAULT_MENU_TOGGLE_STATE = false; //
+
 export default function MenuBar(props: MenuBarProps) {
+  
   if (!props.navigation || props.navigation.length === 0) {
     return <p>Navigation is required to render the menu.</p>;
   }
@@ -74,13 +80,37 @@ export default function MenuBar(props: MenuBarProps) {
        setOpenParentIndices(prevOpenStates => ({...prevOpenStates, [parentIndex]: !prevOpenStates[parentIndex] }));
    }
 
-  const [menuToggle, setMenuToggle] = useState(false);
+   const [menuToggle, setMenuToggle] = useState(DEFAULT_MENU_TOGGLE_STATE);
+  const [isClient, setIsClient] = useState(false); 
 
+  useEffect(() => {
+    setIsClient(true);
+    const storedVal = localStorage.getItem(MENU_TOGGLE_STORAGE_KEY);
+    if (storedVal !== null) {
+      try {
+        const persistedState = JSON.parse(storedVal);
+        setMenuToggle(persistedState);
+      } catch (error) {
+        console.error("Error parsing menuToggle from localStorage on mount:", error);
+        setMenuToggle(DEFAULT_MENU_TOGGLE_STATE);
+      }
+    }
+  }, []); 
+
+  useEffect(() => {
+
+    if (isClient) {
+      try {
+        localStorage.setItem(MENU_TOGGLE_STORAGE_KEY, JSON.stringify(menuToggle));
+      } catch (error) {
+        console.error("Error saving menuToggle to localStorage:", error);
+      }
+    }
+  }, [menuToggle, isClient]);
   function handleMenuToggle(){
-       setMenuToggle(prevToggle => !prevToggle); 
+       setMenuToggle(!menuToggle); 
 
   }
-
 
   return (
     <main className={styles.menuBarContainer}>
