@@ -1,6 +1,7 @@
 "use client";
 import styles from "@/app/styles/orders.module.css";
 import React, { useState } from "react";
+import clsx from "clsx";
 
 import { Client, Order } from "../partials/auxiliar";
 import { testClients } from "../partials/auxiliar";
@@ -10,10 +11,13 @@ import { testOrders } from "../partials/auxiliar";
 import SearchIcon from '@mui/icons-material/Search';
 
 
-function Title({ title = "" }) {
+function Title({ title = "", button, handleButton}: any) {
+
+
   return (
     <div className={styles.tilteContainer}>
       <h2>{title}</h2>
+      {button != undefined ? <div className={styles.titleButton} onClick={handleButton}>{button}</div> : undefined}
     </div>
 
   );
@@ -42,7 +46,7 @@ function ProductSearchable({ pname, price }: any) {
   );
 }
 
-function NewOrder() {
+function NewOrder({visible, setVisible}: any) {
 
   const [tablesNumber, setTablesNumber] = useState(5);
   const [clients, setClients] = useState<Array<Client>>([]);
@@ -64,19 +68,29 @@ function NewOrder() {
   }
 
 
-  return (
 
-    <div className={styles.newOrderFeatureContainer}>
+  return (
+    <div className={clsx({
+      [styles.newOrderPopUp]: visible,
+      [styles.hide]: !visible
+    })} >
+  <div className={styles.newOrderFeatureContainer} >
       <div className={styles.newOrderForm}>
         <div className={styles.orderPrimaryInfoSection}>
           <p>Tipo</p>
           <div className={styles.orderTypeSelectionGroup}>
-            <input type="radio" id="RBDelivery" name="order_type" />
-            <label htmlFor="RBDelivery">Entrega</label>
-            <input type="radio" id="RBTakeOut" name="order_type" />
-            <label htmlFor="RBTakeOut">Para llevar</label>
-            <input type="radio" id="RBStay" name="order_type" />
+            <div className={styles.orderTypeSelection_container}>
+              <input type="radio" id="RBDelivery" name="order_type" />
+              <label htmlFor="RBDelivery">Entrega</label>
+            </div>
+            <div className={styles.orderTypeSelection_container}>
+              <input type="radio" id="RBTakeOut" name="order_type" />
+              <label htmlFor="RBTakeOut">Para llevar</label>
+            </div>
+            <div className={styles.orderTypeSelection_container}> 
+              <input type="radio" id="RBStay" name="order_type" />
             <label htmlFor="RBStay">Dentro</label>
+            </div>
           </div>
           <div className={styles.tableSelectionGroup}>
             <label htmlFor="orderTableNumber">Mesa</label>
@@ -108,10 +122,12 @@ function NewOrder() {
         </div>
       </div>
       <div className={styles.formActionsContainer}>
-        <div className={styles.actionButton}>Clean</div>
+        <div className={styles.actionButton} onClick={()=> setVisible(!visible)}>Cancel</div>
         <div className={styles.actionButton}>Create order</div>
       </div>
     </div>
+    </div>
+  
   );
 
 }
@@ -193,10 +209,17 @@ function Table() {
 
 
 export default function Home() {
+
+  const [newOrderPopUpVisible, setNewOrderPopUpVisible] = useState(false);
+
+  function newOrderHandle(){
+    setNewOrderPopUpVisible(!newOrderPopUpVisible);
+  }
+
   return (
     <main className={styles.main}>
-      <Title title="Nueva orden" />
-      <NewOrder />
+      <Title title="Nueva orden" button="Nueva orden" handleButton={newOrderHandle}/>
+      <NewOrder visible={newOrderPopUpVisible} setVisible={setNewOrderPopUpVisible}/>
       <Section title="Ordenes" />
       <Table />
     </main>
