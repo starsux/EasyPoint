@@ -118,7 +118,7 @@ body{
 }
 
 .clientNameInputGroup{
-    height: 50px;
+    height: 10%;
     display: flex;
     width: 100%;
     display: flex;
@@ -135,8 +135,18 @@ body{
 .tableSelectionGroup{
     display: flex;
     width: 100%;
+    height: 6%;
     gap: 10px;
-    
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.tableSelectionGroup select{
+    height: 100%;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .productSelectionSection{
@@ -162,19 +172,45 @@ body{
 
 .productListContainer{
     width: 100%;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
     flex-grow: 1;
     min-height: 0;
     overflow-y: auto;
     flex-wrap: wrap;
     gap: 10px;
     padding: 10px;
+    align-items: flex-start; 
 }
 
+
 .productSearchContainer { 
+    width: 100%;
+    height: 150px;
     border: 1px solid #eee;
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
 }
+
+.productSearchButtons{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.productSearchBTN{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 1px solid #cccccc;
+}
+
+
 
 .formActionsContainer{
     width: 100%;

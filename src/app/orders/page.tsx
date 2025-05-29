@@ -9,7 +9,7 @@ import { testMenuProducts } from "../partials/auxiliar";
 import { testOrders } from "../partials/auxiliar";
 
 import SearchIcon from '@mui/icons-material/Search';
-
+import AddIcon from '@mui/icons-material/Add';
 
 function Title({ title = "", button, handleButton}: any) {
 
@@ -40,7 +40,9 @@ function ProductSearchable({ pname, price }: any) {
     <div className={styles.productSearchContainer}>
       <p>{pname}</p>
       <p>{price}</p>
-
+      <div className={styles.productSearchButtons}>
+        <div className={styles.productSearchBTN}><AddIcon/></div>
+      </div>
     </div>
 
   );
@@ -74,13 +76,13 @@ function NewOrder({visible, setVisible}: any) {
       [styles.newOrderPopUp]: visible,
       [styles.hide]: !visible
     })} >
-  <div className={styles.newOrderFeatureContainer} >
+  <div className={styles.newOrderFeatureContainer}>
       <div className={styles.newOrderForm}>
         <div className={styles.orderPrimaryInfoSection}>
           <p>Tipo</p>
           <div className={styles.orderTypeSelectionGroup}>
             <div className={styles.orderTypeSelection_container}>
-              <input type="radio" id="RBDelivery" name="order_type" />
+              <input type="radio" id="RBDelivery" name="order_type" defaultChecked={true} />
               <label htmlFor="RBDelivery">Entrega</label>
             </div>
             <div className={styles.orderTypeSelection_container}>
@@ -114,6 +116,7 @@ function NewOrder({visible, setVisible}: any) {
             <SearchIcon />
             <input type="text" placeholder="Buscar productos" />
           </div>
+   
           <div className={styles.productListContainer}>
             {testMenuProducts.map((product, i) => (
               <ProductSearchable key={product.id} pname={product.name} price={product.price} />
