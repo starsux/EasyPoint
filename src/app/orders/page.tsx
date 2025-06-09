@@ -1,5 +1,6 @@
 "use client";
 import styles from "@/app/styles/orders.module.css";
+import stylesComponents from "@/app/styles/components.module.css";
 import React, { useState } from "react";
 import clsx from "clsx";
 
@@ -10,28 +11,7 @@ import { testOrders } from "../partials/auxiliar";
 
 import SearchIcon from '@mui/icons-material/Search';
 import AddIcon from '@mui/icons-material/Add';
-
-function Title({ title = "", button, handleButton}: any) {
-
-
-  return (
-    <div className={styles.tilteContainer}>
-      <h2>{title}</h2>
-      {button != undefined ? <div className={styles.titleButton} onClick={handleButton}>{button}</div> : undefined}
-    </div>
-
-  );
-}
-
-function Section({ title = "" }) {
-
-
-  return (
-    <div className={styles.section}>
-      <h3>{title}</h3>
-    </div>
-  )
-}
+import { Title, Section } from "../components/components";
 
 
 function ProductSearchable({ pname, price }: any) {
@@ -74,7 +54,7 @@ function NewOrder({visible, setVisible}: any) {
   return (
     <div className={clsx({
       [styles.newOrderPopUp]: visible,
-      [styles.hide]: !visible
+      [stylesComponents.hide]: !visible
     })} >
   <div className={styles.newOrderFeatureContainer}>
       <div className={styles.newOrderForm}>

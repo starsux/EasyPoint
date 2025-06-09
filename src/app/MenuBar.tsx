@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import styles from "@/app/styles/barmenu.module.css";
+import stylesComponent from "@/app/styles/components.module.css";
 import MenuIcon from '@mui/icons-material/Menu';
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import {clsx} from "clsx";
@@ -169,7 +170,7 @@ export default function MenuBar(props: MenuBarProps) {
                   )}
                   {item.children && item.children.length > 0 && (
 
-                    <div className={`${styles.children} ${clsx({[styles.hide]: isThisParentHidden })}`}>
+                    <div className={`${styles.children} ${clsx({[stylesComponent.hide]: isThisParentHidden })}`}>
                       {item.children.map((child) => (
 
                         <div
